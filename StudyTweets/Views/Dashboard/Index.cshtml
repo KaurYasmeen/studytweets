@@ -1,0 +1,23 @@
+﻿@model IEnumerable<StudyTweets.User>
+@{
+    ViewBag.Title = "Index";
+    Layout = null;
+}
+
+<h2>Index</h2>
+
+<p>Total Number of Users :- @ViewBag.TotalUsers.</p>
+
+
+<table class="table">
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                   <img src="~/UploadedImages/@item.Image" width="50" height="50"/>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

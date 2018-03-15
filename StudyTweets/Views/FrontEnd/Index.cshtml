@@ -1,0 +1,34 @@
+﻿@model IEnumerable<StudyTweets.frontend>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = null;
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.frontendname)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.frontendname)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.frontendid }) |
+            @Html.ActionLink("Details", "Details", new { id=item.frontendid }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.frontendid })
+        </td>
+    </tr>
+}
+
+</table>

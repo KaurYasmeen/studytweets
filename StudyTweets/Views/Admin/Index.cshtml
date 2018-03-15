@@ -1,0 +1,51 @@
+﻿@model IEnumerable<StudyTweets.User>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = null;
+}
+
+<h2>Index</h2>
+
+<p>
+    Total Uses :- @ViewBag.TotalUsers <br />
+    Approved :- @ViewBag.Approved <br />
+    Non Approved :- @ViewBag.NonApproved <br />
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Mobile)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Image)
+        </th>
+       
+       
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Mobile)
+        </td>
+        <td>
+            <img src="~/UploadedImages/@item.Image"  style="width:50px;height:50px;"/>
+        </td>
+    </tr>
+}
+
+</table>

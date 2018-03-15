@@ -1,0 +1,67 @@
+﻿@model List<StudyTweets.Controllers.ProjectWithFrontEndBackEnd>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                File
+            </th>
+            <th>
+                FrontEnd
+            </th>
+            <th>
+                BackEnd
+            </th>
+            
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProjectName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProjectDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProjectFile)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FrontEndName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BackEndName)
+            </td>
+            
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.ProjectId }) |
+                @Html.ActionLink("Details", "Details", new { id=item.ProjectId }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.ProjectId })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

@@ -1,0 +1,285 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="tabledbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="backend">
+          <Key>
+            <PropertyRef Name="backendid" />
+          </Key>
+          <Property Name="backendid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="backendname" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="country">
+          <Key>
+            <PropertyRef Name="countryid" />
+          </Key>
+          <Property Name="countryid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="countryname" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="frontend">
+          <Key>
+            <PropertyRef Name="frontendid" />
+          </Key>
+          <Property Name="frontendid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="frontendname" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Projects">
+          <Key>
+            <PropertyRef Name="ProjectID" />
+          </Key>
+          <Property Name="ProjectID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Description" Type="varchar" MaxLength="50" />
+          <Property Name="Projectfile" Type="varchar" MaxLength="50" />
+          <Property Name="FrontendId" Type="int" />
+          <Property Name="BackendId" Type="int" />
+          <Property Name="UserId" Type="int" />
+        </EntityType>
+        <EntityType Name="technolgy">
+          <Key>
+            <PropertyRef Name="technologyid" />
+          </Key>
+          <Property Name="technologyid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="technologyname" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UsersID" />
+          </Key>
+          <Property Name="UsersID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Mobile" Type="varchar" MaxLength="50" />
+          <Property Name="Image" Type="varchar" MaxLength="50" />
+          <Property Name="IsApproved" Type="int" />
+          <Property Name="Paswword" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="video">
+          <Key>
+            <PropertyRef Name="videoid" />
+          </Key>
+          <Property Name="videoid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Description" Type="varchar" MaxLength="50" />
+          <Property Name="uploadfile" Type="varchar" MaxLength="50" />
+          <Property Name="technologyid" Type="int" />
+          <Property Name="userid" Type="int" />
+        </EntityType>
+        <EntityType Name="videos">
+          <Key>
+            <PropertyRef Name="videoid" />
+          </Key>
+          <Property Name="videoid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="uploadfile" Type="varchar" MaxLength="50" />
+          <Property Name="userid" Type="int" />
+        </EntityType>
+        <EntityContainer Name="tabledbModelStoreContainer">
+          <EntitySet Name="backend" EntityType="Self.backend" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="country" EntityType="Self.country" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="frontend" EntityType="Self.frontend" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Projects" EntityType="Self.Projects" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="technolgy" EntityType="Self.technolgy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="video" EntityType="Self.video" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="videos" EntityType="Self.videos" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="tabledbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="country">
+          <Key>
+            <PropertyRef Name="countryid" />
+          </Key>
+          <Property Name="countryid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="countryname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="frontend">
+          <Key>
+            <PropertyRef Name="frontendid" />
+          </Key>
+          <Property Name="frontendid" Type="Int32" Nullable="false" />
+          <Property Name="frontendname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="tabledbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="countries" EntityType="Self.country" />
+          <EntitySet Name="frontends" EntityType="Self.frontend" />
+          <EntitySet Name="Users" EntityType="tabledbModel.User" />
+          <EntitySet Name="Projects" EntityType="tabledbModel.Project" />
+          <EntitySet Name="backends" EntityType="tabledbModel.backend" />
+          <EntitySet Name="technolgies" EntityType="tabledbModel.technolgy" />
+          <EntitySet Name="videos" EntityType="tabledbModel.video" />
+          <EntitySet Name="videos1" EntityType="tabledbModel.video1" />
+        </EntityContainer>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UsersID" />
+          </Key>
+          <Property Name="UsersID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Image" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Paswword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsApproved" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Project">
+          <Key>
+            <PropertyRef Name="ProjectID" />
+          </Key>
+          <Property Name="ProjectID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Projectfile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FrontendId" Type="Int32" />
+          <Property Name="BackendId" Type="Int32" />
+          <Property Name="UserId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="backend">
+          <Key>
+            <PropertyRef Name="backendid" />
+          </Key>
+          <Property Name="backendid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="backendname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="technolgy">
+          <Key>
+            <PropertyRef Name="technologyid" />
+          </Key>
+          <Property Name="technologyid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="technologyname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="video">
+          <Key>
+            <PropertyRef Name="videoid" />
+          </Key>
+          <Property Name="videoid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="uploadfile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="technologyid" Type="Int32" />
+          <Property Name="userid" Type="Int32" />
+        </EntityType>
+        <EntityType Name="video1">
+          <Key>
+            <PropertyRef Name="videoid" />
+          </Key>
+          <Property Name="videoid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="uploadfile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="userid" Type="Int32" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="tabledbModelStoreContainer" CdmEntityContainer="tabledbEntities">
+          <EntitySetMapping Name="countries">
+            <EntityTypeMapping TypeName="tabledbModel.country">
+              <MappingFragment StoreEntitySet="country">
+                <ScalarProperty Name="countryid" ColumnName="countryid" />
+                <ScalarProperty Name="countryname" ColumnName="countryname" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="frontends">
+            <EntityTypeMapping TypeName="tabledbModel.frontend">
+              <MappingFragment StoreEntitySet="frontend">
+                <ScalarProperty Name="frontendid" ColumnName="frontendid" />
+                <ScalarProperty Name="frontendname" ColumnName="frontendname" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="tabledbModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+                <ScalarProperty Name="Paswword" ColumnName="Paswword" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="UsersID" ColumnName="UsersID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Projects">
+            <EntityTypeMapping TypeName="tabledbModel.Project">
+              <MappingFragment StoreEntitySet="Projects">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="BackendId" ColumnName="BackendId" />
+                <ScalarProperty Name="FrontendId" ColumnName="FrontendId" />
+                <ScalarProperty Name="Projectfile" ColumnName="Projectfile" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="backends">
+            <EntityTypeMapping TypeName="tabledbModel.backend">
+              <MappingFragment StoreEntitySet="backend">
+                <ScalarProperty Name="backendname" ColumnName="backendname" />
+                <ScalarProperty Name="backendid" ColumnName="backendid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="technolgies">
+            <EntityTypeMapping TypeName="tabledbModel.technolgy">
+              <MappingFragment StoreEntitySet="technolgy">
+                <ScalarProperty Name="technologyname" ColumnName="technologyname" />
+                <ScalarProperty Name="technologyid" ColumnName="technologyid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="videos">
+            <EntityTypeMapping TypeName="tabledbModel.video">
+              <MappingFragment StoreEntitySet="video">
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="technologyid" ColumnName="technologyid" />
+                <ScalarProperty Name="uploadfile" ColumnName="uploadfile" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="videoid" ColumnName="videoid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="videos1">
+            <EntityTypeMapping TypeName="tabledbModel.video1">
+              <MappingFragment StoreEntitySet="videos">
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="uploadfile" ColumnName="uploadfile" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="videoid" ColumnName="videoid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
